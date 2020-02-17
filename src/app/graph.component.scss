@@ -1,0 +1,35 @@
+.mean {
+  position: absolute;
+  width: 100%;
+  border-top: 3px solid #efefef;
+  z-index: 1000;
+  .temp {
+    color: #efefef;
+  }
+}
+
+.bar {
+  position: relative;
+  background: #f3a633;
+  margin: 0 2px;
+  flex-grow: 1;
+  flex-basis: 0;
+  .temp {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    line-height: 2em;
+  }
+  .name {
+    position: absolute;
+    display: block;
+    top: 100%;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: left;
+    transform-origin: 0 0;
+    transform: rotate(-90deg);
+    padding: 6px;
+  }
+}

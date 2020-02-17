@@ -5,7 +5,7 @@ html, body {
 
 body {
   font-family: 'Cabin', sans-serif;
-  background: radial-gradient(#144d6d, #1e668c);
+  background: radial-gradient(#144d6d, #1e668c) no-repeat fixed;
 }
 
 h1 {
@@ -18,7 +18,7 @@ h1 {
 
 .content {
   margin: 0 auto;
-  width: 80%;
+  width: 90%;
 }
 
 /* Reset button styles */

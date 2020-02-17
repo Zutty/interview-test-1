@@ -10,6 +10,7 @@ import {SortPipe} from "../transform/sort.pipe";
 import {FilterComponent} from "./filter.component";
 import {SearchPipe} from "../transform/search.pipe";
 import {FormsModule} from "@angular/forms";
+import {GraphComponent} from "./graph.component";
 
 @NgModule({
     bootstrap: [WeatherAppComponent],
@@ -22,6 +23,7 @@ import {FormsModule} from "@angular/forms";
         PagePipe,
         PaginationComponent,
         FilterComponent,
+        GraphComponent,
         SearchPipe,
         SortPipe,
         TableComponent,
