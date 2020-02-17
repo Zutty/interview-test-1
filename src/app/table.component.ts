@@ -9,7 +9,7 @@ import {Filter} from "./filter.component";
     templateUrl: "table.component.html",
     styleUrls: ["table.component.scss"]
 })
-export class TableComponent {
+export class TableComponent implements OnInit {
     @Input()
     public cities: Observable<WeatherData[]>;
 
@@ -23,4 +23,8 @@ export class TableComponent {
         size: 10,
         total: 0
     };
+
+    public ngOnInit(): void {
+        this.cities.subscribe(arr => this.paging.total = arr.length);
+    }
 }
