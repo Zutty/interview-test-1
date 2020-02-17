@@ -4,13 +4,16 @@ import {WeatherData} from "../service/open-weather.service";
 
 @Component({
     selector: "graph",
-    template: `<div class="mean" [ngStyle]="{height: meanTemp / maxTemp * 100 + '%'}">
+    template: `<h2>Average Temperature</h2>
+    <div class="graph">
+        <div class="mean" [ngStyle]="{height: meanTemp / maxTemp * 100 + '%'}">
             <span class="temp">{{meanTemp | number:"1.0-0"}}</span>
         </div>
         <div class="bar" *ngFor="let city of cities | async" [ngStyle]="{height: city.main.temp / maxTemp * 100 + '%'}">
             <span class="temp">{{city.main.temp | number:"1.0-0"}}</span>
             <span class="name">{{city.name}}</span>
-        </div>`,
+        </div>
+    </div>`,
     styleUrls: ["graph.component.scss"]
 })
 export class GraphComponent implements OnInit {

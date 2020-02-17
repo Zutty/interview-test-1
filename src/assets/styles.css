@@ -10,10 +10,16 @@ body {
 
 h1 {
   margin-left: 2em;
-  background: #efefef;
   display: inline-block;
-  padding: 4px 1em;
+  padding: 6px;
   margin-bottom: 1em;
+  text-indent: 40px;
+  background: #efefef url("partlycloudy.svg") no-repeat 6px 6px;
+  background-size: 40px;
+}
+
+h2 {
+  background: #efefef;
 }
 
 .content {
