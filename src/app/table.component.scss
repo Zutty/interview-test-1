@@ -1,0 +1,94 @@
+.weather {
+  display: grid;
+  grid-template-columns: 48px minmax(150px, 1fr) minmax(150px, 0.8fr) 40px;
+  align-items: stretch;
+  > .cell {
+    position: relative;
+    box-sizing: border-box;
+    height: 2.5em;
+    line-height: 2.5em;
+    background: white;
+    margin-bottom: 6px;
+  }
+
+  .temp {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    margin-top: -1em;
+    background: #f3a633;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    white-space: nowrap;
+    text-align: center;
+    margin-left: 4px;
+
+  }
+  .city {
+    font-size: 1.6em;
+    vertical-align: text-bottom;
+    margin-right: 2em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .desc {
+    line-height: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    > i {
+      display: inline-block;
+      background-repeat: no-repeat;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      margin: 0;
+      vertical-align: middle;
+      margin-right: 1em;
+      /* Credit https://github.com/manifestinteractive/weather-underground-icons */
+      &.icon01d { background-image: url("assets/clear.svg"); }
+      &.icon02d { background-image: url("assets/partlycloudy.svg"); }
+      &.icon03d { background-image: url("assets/cloudy.svg"); }
+      &.icon04d { background-image: url("assets/partlysunny.svg"); }
+      &.icon09d { background-image: url("assets/chancerain.svg"); }
+      &.icon10d { background-image: url("assets/rain.svg"); }
+      &.icon11d { background-image: url("assets/tstorms.svg"); }
+      &.icon13d { background-image: url("assets/snow.svg"); }
+      &.icon50d { background-image: url("assets/fog.svg"); }
+      &.icon01n { background-image: url("assets/nt_clear.svg"); }
+      &.icon02n { background-image: url("assets/nt_partlycloudy.svg"); }
+      &.icon03n { background-image: url("assets/nt_cloudy.svg"); }
+      &.icon04n { background-image: url("assets/nt_partlysunny.svg"); }
+      &.icon09n { background-image: url("assets/nt_chancerain.svg"); }
+      &.icon10n { background-image: url("assets/nt_rain.svg"); }
+      &.icon11n { background-image: url("assets/nt_tstorms.svg"); }
+      &.icon13n { background-image: url("assets/nt_snow.svg"); }
+      &.icon50n { background-image: url("assets/nt_fog.svg"); }
+    }
+  }
+  .wind {
+    display: inline-block;
+    position: absolute;
+    vertical-align: text-bottom;
+    text-align: center;
+    line-height: 25px;
+    top: 50%;
+    margin-top: -13px;
+    color: #333333;
+    width: 24px;
+    height: 24px;
+    > i {
+      background-image: url("assets/wind-arrow.svg");
+      background-repeat: no-repeat;
+      background-size: 40px 40px;
+      top: -8px;
+      left: -8px;
+      display: block;
+      position: absolute;
+      width: 40px;
+      height: 40px;
+    }
+  }
+}

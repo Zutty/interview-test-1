@@ -1,5 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {OpenWeatherService, WeatherData} from "../service/open-weather.service";
+import {Observable} from "rxjs";
 
 @Component({
     selector: "weather-app",
@@ -8,12 +9,12 @@ import {OpenWeatherService, WeatherData} from "../service/open-weather.service";
 })
 export class WeatherAppComponent implements OnInit {
 
-    public weather:WeatherData;
+    public cities:Observable<WeatherData[]>;
 
     constructor(private openWeatherService: OpenWeatherService) {
     }
 
     public ngOnInit(): void {
-        this.openWeatherService.city("Cambridge").subscribe(data => this.weather = data);
+        this.cities = this.openWeatherService.britishCities();
     }
 }

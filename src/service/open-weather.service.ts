@@ -1,8 +1,7 @@
-import {Observable} from "rxjs";
-import {HttpClient} from "@angular/common/http";
 import {Injectable} from "@angular/core";
-
-const API_KEY = "194333f5b09188fbda8c4a3bbfea30b2";
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
+import {map} from "rxjs/operators";
 
 export type WeatherData = {
     coord: {
@@ -56,14 +55,28 @@ export type WeatherData = {
     cod: number;
 }
 
+type Response = {
+    list: WeatherData[]
+}
+
+const API_KEY = "194333f5b09188fbda8c4a3bbfea30b2";
+
+/*
+ * Unfortunately the British Isles cover more than the limit of 25 square degrees.
+ * I have tried to be diplomatic, with apologies to Arlene Foster!
+ * @see https://gist.github.com/Zutty/10646db70a4d0f685d639536aa2d01ac
+ */
+const BOUNDING_BOX: number[] = [-5, 51.3, 0.31, 56];
+
 @Injectable()
 export class OpenWeatherService {
 
     constructor(private httpClient: HttpClient) {
     }
 
-    public city(query: string): Observable<WeatherData> {
-        return this.httpClient.get<WeatherData>("http://api.openweathermap.org/data/2.5/weather",
-            {params: {q: query, appid: API_KEY}});
+    public britishCities(zoom: number = 7): Observable<WeatherData[]> {
+        return this.httpClient.get<Response>("http://api.openweathermap.org/data/2.5/box/city",
+            {params: {bbox: [...BOUNDING_BOX, zoom].join(","), cluster: "yes", lang: "en", appid: API_KEY}})
+            .pipe(map(response => response.list));
     }
 }

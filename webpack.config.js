@@ -18,6 +18,7 @@ module.exports = function () {
                 {test: /\.ts$/, loaders: ['@ngtools/webpack']},
                 {test: /\.css$/, loader: 'raw-loader'},
                 {test: /\.html$/, loader: 'raw-loader'},
+                {test: /\.svg$/, loader: "raw-loader"},
                 {test: /\.scss$/, exclude: /node_modules/, loaders: ['raw-loader', 'sass-loader'] }
             ]
         },

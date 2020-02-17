@@ -1,0 +1,8 @@
+<div class="weather">
+    <ng-container *ngFor="let city of cities | async">
+        <div class="cell"><span class="temp" [ngStyle]="{'--temp': city.main.temp | number:'1.0-0'}">{{city.main.temp | number:"1.0-0"}}</span></div>
+        <div class="cell"><span class="city">{{city.name}}</span></div>
+        <div class="cell"><span class="desc" *ngFor="let weather of city.weather"><i [ngClass]="'icon' + weather.icon"></i>{{weather.description}}</span></div>
+        <div class="cell"><span class="wind">{{city.wind.speed | number:"1.0-0"}} <i [ngStyle]="{transform: 'rotate(' + city.wind.deg + 'deg)'}"></i></span></div>
+    </ng-container>
+</div>
