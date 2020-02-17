@@ -2,18 +2,24 @@
   display: flex;
   justify-content: space-between;
 
-  i {
-    font-style: normal;
-    display: inline-block;
-    font-size: 3em;
-    line-height: 40px;
-    width: 0.5em;
-    &::before {
-      content: "\002022";
-      color: #999999;
-    }
-    &.current::before {
-      color: #efefef;
+  .pips {
+    flex-basis: 50%;
+    margin-top: 15px;
+    i {
+      font-style: normal;
+      display: inline-block;
+      font-size: 3em;
+      line-height: 10px;
+      width: 0.5em;
+
+      &::before {
+        content: "\002022";
+        color: #999999;
+      }
+
+      &.current::before {
+        color: #efefef;
+      }
     }
   }
 

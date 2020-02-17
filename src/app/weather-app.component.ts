@@ -9,12 +9,14 @@ import {Observable} from "rxjs";
 })
 export class WeatherAppComponent implements OnInit {
 
-    public cities:Observable<WeatherData[]>;
+    public someCities:Observable<WeatherData[]>;
+    public manyCities:Observable<WeatherData[]>;
 
     constructor(private openWeatherService: OpenWeatherService) {
     }
 
     public ngOnInit(): void {
-        this.cities = this.openWeatherService.britishCities();
+        this.someCities = this.openWeatherService.britishCities(7);
+        this.manyCities = this.openWeatherService.britishCities(10);
     }
 }
