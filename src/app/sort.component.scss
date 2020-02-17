@@ -1,0 +1,42 @@
+button {
+  background: #999999;
+  &:hover {
+    background-color: darken(#999999, 12);
+  }
+  &.active {
+    background: #efefef;
+    &:hover {
+      background-color: #d3d3d3;
+    }
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+}
+
+.sort {
+  margin: 6px 0;
+
+  button {
+    line-height: 2em;
+    padding-left: 0.5em;
+    padding-right: 4px;
+    & + button {
+      margin-left: 1px;
+    }
+    > i {
+      display: inline-block;
+      background-repeat: no-repeat;
+      background-size: 24px;
+      width: 24px;
+      height: 24px;
+      padding: 0 0 2px;
+      margin: 0;
+      vertical-align: middle;
+      &.sort-alpha.asc { background-image: url("assets/sort-alpha-asc.svg"); }
+      &.sort-alpha.desc { background-image: url("assets/sort-alpha-desc.svg"); }
+      &.sort-numeric.asc { background-image: url("assets/sort-numeric-asc.svg"); }
+      &.sort-numeric.desc { background-image: url("assets/sort-numeric-desc.svg"); }
+    }
+  }
+}

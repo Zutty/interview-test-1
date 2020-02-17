@@ -1,5 +1,6 @@
+<sort [sort]="sort"></sort>
 <div class="weather">
-    <ng-container *ngFor="let city of cities | async | page:paging.current:paging.size">
+    <ng-container *ngFor="let city of cities | async | sort:sort.sortBy:sort.sortDir | page:paging.current:paging.size">
         <div class="cell"><span class="temp" [ngStyle]="{'--temp': city.main.temp | number:'1.0-0'}">{{city.main.temp | number:"1.0-0"}}</span></div>
         <div class="cell"><span class="city">{{city.name}}</span></div>
         <div class="cell"><span class="desc" *ngFor="let weather of city.weather"><i [ngClass]="'icon' + weather.icon"></i>{{weather.description}}</span></div>

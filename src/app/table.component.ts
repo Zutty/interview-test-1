@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from "@angular/core";
 import {WeatherData} from "../service/open-weather.service";
 import {Observable} from "rxjs";
 import {PageData} from "./pagination.component";
+import {Sort} from "./sort.component";
 
 @Component({
     selector: "cities-table",
@@ -11,6 +12,11 @@ import {PageData} from "./pagination.component";
 export class TableComponent implements OnInit {
     @Input()
     public cities: Observable<WeatherData[]>;
+
+    public sort: Sort = {
+        sortBy: "name",
+        sortDir: "asc"
+    };
 
     public paging: PageData = {
         current: 0,

@@ -6,6 +6,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {TableComponent} from "./table.component";
 import {PagePipe} from "../transform/page.pipe";
 import {PaginationComponent} from "./pagination.component";
+import {SortPipe} from "../transform/sort.pipe";
+import {SortComponent} from "./sort.component";
 
 @NgModule({
     bootstrap: [WeatherAppComponent],
@@ -16,6 +18,8 @@ import {PaginationComponent} from "./pagination.component";
     declarations: [
         PagePipe,
         PaginationComponent,
+        SortComponent,
+        SortPipe,
         TableComponent,
         WeatherAppComponent
     ],
