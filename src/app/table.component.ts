@@ -2,18 +2,18 @@ import {Component, Input, OnInit} from "@angular/core";
 import {WeatherData} from "../service/open-weather.service";
 import {Observable} from "rxjs";
 import {PageData} from "./pagination.component";
-import {Sort} from "./sort.component";
+import {Filter} from "./filter.component";
 
 @Component({
     selector: "cities-table",
     templateUrl: "table.component.html",
     styleUrls: ["table.component.scss"]
 })
-export class TableComponent implements OnInit {
+export class TableComponent {
     @Input()
     public cities: Observable<WeatherData[]>;
 
-    public sort: Sort = {
+    public filter: Filter = {
         sortBy: "name",
         sortDir: "asc"
     };
@@ -23,9 +23,4 @@ export class TableComponent implements OnInit {
         size: 10,
         total: 0
     };
-
-    public ngOnInit(): void {
-        console.log("init");
-        this.cities.subscribe(arr => {this.paging.total = arr.length;console.log("YAY")});
-    }
 }

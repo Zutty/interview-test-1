@@ -14,7 +14,28 @@ button {
   }
 }
 
-.sort {
+input {
+  margin:0;
+  border:0;
+  padding:0;
+  display:inline-block;
+  vertical-align:middle;
+  white-space:normal;
+  background:none;
+  line-height:1;
+  outline: none;
+  &:focus {
+    outline: none;
+  }
+
+  /* Browsers have different default form fonts */
+  font-size:13px;
+  font-family:Arial;
+}
+
+.filter {
+  display: flex;
+  justify-content: space-between;
   margin: 6px 0;
 
   button {
@@ -39,4 +60,24 @@ button {
       &.sort-numeric.desc { background-image: url("assets/sort-numeric-desc.svg"); }
     }
   }
+
+  label {
+    position: relative;
+    svg {
+      position: absolute;
+      top: calc(50% - 10px);
+      left: 4px;
+    }
+    input {
+      display: inline-block;
+      background-color: #efefef;
+      font-size: 1em;
+      line-height: 32px;
+      text-indent: 30px;
+      &:focus {
+        box-shadow: 0 0 2px 2px #333;
+      }
+    }
+  }
+
 }

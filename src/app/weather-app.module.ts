@@ -7,18 +7,22 @@ import {TableComponent} from "./table.component";
 import {PagePipe} from "../transform/page.pipe";
 import {PaginationComponent} from "./pagination.component";
 import {SortPipe} from "../transform/sort.pipe";
-import {SortComponent} from "./sort.component";
+import {FilterComponent} from "./filter.component";
+import {SearchPipe} from "../transform/search.pipe";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
     bootstrap: [WeatherAppComponent],
     imports: [
         BrowserModule,
+        FormsModule,
         HttpClientModule
     ],
     declarations: [
         PagePipe,
         PaginationComponent,
-        SortComponent,
+        FilterComponent,
+        SearchPipe,
         SortPipe,
         TableComponent,
         WeatherAppComponent
