@@ -1,0 +1,8 @@
+{
+  "name": "interview-test-1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Zutty/interview-test-1.git",
+  "author": "Zutty <george.weller@gmail.com>",
+  "license": "MIT"
+}
