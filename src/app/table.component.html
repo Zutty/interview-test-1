@@ -6,5 +6,6 @@
         <div class="cell"><span class="desc" *ngFor="let weather of city.weather"><i [ngClass]="'icon' + weather.icon"></i>{{weather.description}}</span></div>
         <div class="cell"><span class="wind">{{city.wind.speed | number:"1.0-0"}} <i [ngStyle]="{transform: 'rotate(' + city.wind.deg + 'deg)'}"></i></span></div>
     </ng-container>
+    <div class="no-match" *ngIf="(cities | async | search:'name':filter.query).length == 0">No matches found</div>
 </div>
 <pages [paging]="paging"></pages>

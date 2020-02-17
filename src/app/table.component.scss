@@ -91,4 +91,12 @@
       height: 40px;
     }
   }
+
+  .no-match {
+    background: darken(#efefef, 20%);
+    color: #333333;
+    grid-column: 1 / span 4;
+    text-align: center;
+    padding: 3em;
+  }
 }
