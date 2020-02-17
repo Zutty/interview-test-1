@@ -1,4 +1,39 @@
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
 body {
   font-family: 'Cabin', sans-serif;
   background: radial-gradient(#144d6d, #1e668c);
+}
+
+h1 {
+  margin-left: 2em;
+  background: #efefef;
+  display: inline-block;
+  padding: 4px 1em;
+  margin-bottom: 1em;
+}
+
+.content {
+  margin: 0 auto;
+  width: 80%;
+}
+
+/* Reset button styles */
+button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  color: inherit;
+  font: inherit;
+  background: transparent;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
+  outline: none;
 }

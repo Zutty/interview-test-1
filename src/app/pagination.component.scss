@@ -1,0 +1,56 @@
+.pages {
+  display: flex;
+  justify-content: space-between;
+
+  i {
+    font-style: normal;
+    display: inline-block;
+    font-size: 3em;
+    line-height: 40px;
+    width: 0.5em;
+    &::before {
+      content: "\002022";
+      color: #999999;
+    }
+    &.current::before {
+      color: #efefef;
+    }
+  }
+
+  button {
+    background: #999999;
+    &:hover {
+      background-color: darken(#999999, 12);
+    }
+    &.active {
+      background: #efefef;
+      &:hover {
+        background-color: #d3d3d3;
+      }
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+  }
+
+  .sizes {
+    margin: 6px 0;
+
+    button {
+      line-height: 2em;
+      padding: 0 1em;
+      & + button {
+        margin-left: 1px;
+      }
+    }
+  }
+
+  .prevnext button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    + button {
+      margin-left: 0.5em;
+    }
+  }
+}
