@@ -1,0 +1,10 @@
+.app-root {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  > .panel {
+    flex-basis: 50%;
+  }
+}
+

@@ -2,7 +2,8 @@ import {Component} from "@angular/core";
 
 @Component({
     selector: "weather-app",
-    template: `<h1>Weather App</h1>`
+    templateUrl: "weather-app.component.html",
+    styleUrls: ["./weather-app.component.scss"]
 })
 export class WeatherAppComponent {
 

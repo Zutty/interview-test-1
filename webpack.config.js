@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ScriptExtPlugin = require('script-ext-html-webpack-plugin');
 const {AngularCompilerPlugin} = require('@ngtools/webpack');
 
@@ -14,10 +15,15 @@ module.exports = function () {
         },
         module: {
             rules: [
-                {test: /\.ts$/, loaders: ['@ngtools/webpack']}
+                {test: /\.ts$/, loaders: ['@ngtools/webpack']},
+                {test: /\.html$/, loader: 'raw-loader'},
+                {test: /\.scss$/, exclude: /node_modules/, loaders: ['raw-loader', 'sass-loader'] }
             ]
         },
         plugins: [
+            new CopyWebpackPlugin([
+                {from: 'src/assets', to: 'assets'}
+            ]),
             new HtmlWebpackPlugin({
                 template: __dirname + '/src/index.html',
                 output: __dirname + '/dist',
@@ -28,9 +34,9 @@ module.exports = function () {
             }),
             new AngularCompilerPlugin({
                 tsConfigPath: './tsconfig.json',
-                entryModule: './src/app/app.module#AppModule',
+                entryModule: './src/app/weather-app.module#WeatherAppModule',
                 sourceMap: true
             })
         ]
     };
-}
+};
