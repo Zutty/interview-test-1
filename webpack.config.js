@@ -16,6 +16,7 @@ module.exports = function () {
         module: {
             rules: [
                 {test: /\.ts$/, loaders: ['@ngtools/webpack']},
+                {test: /\.css$/, loader: 'raw-loader'},
                 {test: /\.html$/, loader: 'raw-loader'},
                 {test: /\.scss$/, exclude: /node_modules/, loaders: ['raw-loader', 'sass-loader'] }
             ]
@@ -34,7 +35,7 @@ module.exports = function () {
             }),
             new AngularCompilerPlugin({
                 tsConfigPath: './tsconfig.json',
-                entryModule: './src/app/weather-app.module#WeatherAppModule',
+                entryModule: './src/app/app.module#AppModule',
                 sourceMap: true
             })
         ]
