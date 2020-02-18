@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for app/graph.component.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">app/</a> graph.component.ts
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">6.67% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>1/15</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/0</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">10% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>1/10</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import {Component, Input, OnInit} from "@angular/core";</span>
+<span class="cstat-no" title="statement not covered" >import {Observable} from "rxjs";</span>
+import {WeatherData} from "../service/open-weather.service";
+&nbsp;
+@Component({
+    selector: "graph",
+    template: `&lt;h2&gt;Average Temperature&lt;/h2&gt;
+    &lt;div class="graph"&gt;
+        &lt;div class="mean" [ngStyle]="{height: meanTemp / maxTemp * 100 + '%'}"&gt;
+            &lt;span class="temp"&gt;{{meanTemp | number:"1.0-0"}}&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class="bar" *ngFor="let city of cities | async" [ngStyle]="{height: city.main.temp / maxTemp * 100 + '%'}"&gt;
+            &lt;span class="temp"&gt;{{city.main.temp | number:"1.0-0"}}&lt;/span&gt;
+            &lt;span class="name"&gt;{{city.name}}&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;`,
+    styleUrls: ["graph.component.scss"]
+})
+<span class="fstat-no" title="function not covered" >export class <span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" >GraphComponent </span>implements OnInit {</span></span>
+    @Input()
+<span class="cstat-no" title="statement not covered" >    public cities: Observable&lt;WeatherData[]&gt;;</span>
+&nbsp;
+    public maxTemp: number;
+    public meanTemp: number;
+&nbsp;
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >    public <span class="cstat-no" title="statement not covered" >ngOnInit(): void {</span></span></span>
+<span class="cstat-no" title="statement not covered" >        this.cities.subscribe(<span class="fstat-no" title="function not covered" >cities </span>=&gt; {</span>
+<span class="cstat-no" title="statement not covered" >            let temps = cities.map(<span class="fstat-no" title="function not covered" >city </span>=&gt; <span class="cstat-no" title="statement not covered" >city.main.temp)</span>;</span>
+<span class="cstat-no" title="statement not covered" >            this.maxTemp = Math.max.apply(Math, temps);</span>
+<span class="cstat-no" title="statement not covered" >            this.meanTemp = temps.reduce(<span class="fstat-no" title="function not covered" >(a, b)</span> =&gt; <span class="cstat-no" title="statement not covered" >a + b)</span> / cities.length;</span>
+        });
+    }
+<span class="cstat-no" title="statement not covered" >}</span>
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Feb 17 2020 21:18:00 GMT+0000 (Greenwich Mean Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
